@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BasicLayout from '../basicPage'
-import SignIn from './signIn/signIn'
-import Register from './register/register'
+import SignInContainer from './signIn/signInContainer'
+import RegisterContainer from './register/registerContainer'
 import { Tabs } from 'antd'
 const {TabPane} = Tabs;
 
@@ -12,10 +12,10 @@ class Authentification extends Component {
                 <h1>Sign in / Register </h1>
                 <Tabs defaultActiveKey='1'>
                     <TabPane tab='Sign in' key='1'>  
-                        <SignIn/>
+                        <SignInContainer/>
                     </TabPane>   
                     <TabPane tab='Register' key='2'>  
-                        <Register/>
+                        <RegisterContainer/>
                     </TabPane>   
                 </Tabs> 
                
