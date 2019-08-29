@@ -30,6 +30,23 @@
   margin: 16px 24px 16px 0;
   float: left;
 }
+.all-list{
+  
+}
+
+.film-list h2{
+  display: inline;
+  text-align: center;
+}
+
+.film-list{
+  
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border: 2px solid grey;
+  margin-bottom: 10px;
+}
 
 @keyframes App-logo-spin {
   from {

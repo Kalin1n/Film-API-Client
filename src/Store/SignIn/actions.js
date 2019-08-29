@@ -51,12 +51,11 @@ export function signIn ( login, password ){
         })).json()
         console.log('iz sign in', data.token)
         if (!!data.token){
-            actionResolved(data.token)
-        
-        return {
-            type : SIGNIN_SET_STATUS,
-            payload: data
+            console.log("Vot takay data")
+            dispatch(actionResolved(data.token))
         }
-    }
+        else {
+            dispatch(actionRejected(data.error))
+        }   
     }
 }

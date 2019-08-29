@@ -56,9 +56,9 @@ export const actionRejected = ( error ) => ({
 export function register ( username, password, login, age, phonenumber ){
     return async dispatch => {
         dispatch ( actionPending())
-        console.log('Registr otrabativaet s : ', username, password, login, age, phonenumber);
+        //console.log('R', username, password, login, age, phonenumber);
         var data = await ( await fetch ('https://film-api-go.herokuapp.com/auth',{
-            headers : { 
+            headers : {
                 'Content-Type' : 'application/json',
                 'Accept' : 'application/json'
              },
@@ -69,13 +69,16 @@ export function register ( username, password, login, age, phonenumber ){
                  "Login" : login,
                  "Age" : age,
                  "Telephone" : phonenumber
-             }) 
+             })
         })).json()
-        console.log(data)
-
-        return {
-            type: SET_STATUS,
-            payload : data
+        //console.log('d',data);
+        if (!!data.error){
+            console.log('Vot etot error', data.error);
+            dispatch(actionRejected(data.error));
+        }
+        else {
+            console.log('Vot takaya data', data);
+            dispatch(actionResolved(data));
         }
     }
 }
