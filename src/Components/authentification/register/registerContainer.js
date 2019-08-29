@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Register from './register';
 import {setUsernameText, setPasswordText, 
         setLoginText, setAgeText, 
-            setPhonenumberText} from '../../../Store/Register/actions';
+            setPhonenumberText, register} from '../../../Store/Register/actions';
 
 class RegisterContainer extends Component{
     render(){
@@ -19,6 +19,7 @@ class RegisterContainer extends Component{
                 setLoginText={this.props.setLoginText}
                 setAgeText={this.props.setAgeText}
                 setPhonenumberText={this.props.setPhonenumberText}
+                register={this.props.register}
             />
         )
     }
@@ -39,7 +40,8 @@ const mapDispatchToProps = {
     setPasswordText,
     setLoginText,
     setAgeText,
-    setPhonenumberText
+    setPhonenumberText,
+    register
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterContainer);

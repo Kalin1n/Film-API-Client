@@ -6,6 +6,7 @@ export const REGISTER_CHANGE_AGE = 'REGISTER_CHANGE_AGE';
 export const REGISTER_CHANGE_PHONENUMBER = 'REGISTER_CHANGE_PHONENUMBER';
 export const SET_STATUS = 'SET_STATUS';
 export const SEND_REGISTER = 'SEND_REGISTER';
+
 export const setUsernameText = ( username ) => ({
     type : REGISTER_CHANGE_USERNAME,
     payload : username
@@ -55,7 +56,8 @@ export const actionRejected = ( error ) => ({
 export function register ( username, password, login, age, phonenumber ){
     return async dispatch => {
         dispatch ( actionPending())
-        var data = await ( await fetch ('',{
+        console.log('Registr otrabativaet s : ', username, password, login, age, phonenumber);
+        var data = await ( await fetch ('https://film-api-go.herokuapp.com/auth',{
             headers : { 
                 'Content-Type' : 'application/json',
                 'Accept' : 'application/json'
