@@ -13,6 +13,7 @@ import Homepage from './homepage/homepage'
 import FilmsPageContainer from './allFilmsPage/filmsPageContainer.js'
 import Authentification from './authentification/authPage'
 import FilmContainer from './oneFilmPage/filmContainer'
+import RentedPageContainer from './rentedPage/rentedPageContainer'
 
 export const store  = createStore ( rootReducer, composeWithDevTools( applyMiddleware(thunk)));
 store.subscribe( () => console.log( store.getState()))
@@ -29,6 +30,7 @@ class Main extends Component {
                         <Route path='/films' component={FilmsPageContainer} exact />
                         <Route path='/auth' component={Authentification} exact />
                         <Route path='/films/:film_id' component={FilmContainer} exact/>
+                        <Route path='/rented' component={RentedPageContainer} exact />
                     </Switch>
                 </Router>
             </Provider>

@@ -49,6 +49,8 @@ export function signIn ( login, password ){
                 "Password" : password
              }) 
         })).json()
+
+
         console.log('iz sign in', data.token)
         if (!!data.token){
             console.log("Vot takay data")

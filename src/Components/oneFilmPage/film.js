@@ -5,12 +5,16 @@ import { Link } from 'react-router-dom'
 class Film extends Component{
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            id : undefined
+        }
+        this.rent = this.rent.bind(this);
     }
     
      async componentDidMount(){            // REDO!
         let id = window.location.pathname;
         id = id.replace(/[^0-9\.]+/g, "");
+        this.setState({id : id});
         id--;
        console.log('films', this.props.films)
         if ( this.props.films.length === 0  ){
@@ -39,6 +43,10 @@ class Film extends Component{
         } 
             
     }
+    rent(){
+        console.log('from a rent func',this.state.id);
+        this.props.rent(this.state.id, this.props.user)
+    }
     render(){
         
         return (
@@ -51,7 +59,7 @@ class Film extends Component{
                     <h1> Genres : {this.state.resGen}</h1> 
                     {
                         this.props.user ? 
-                            <button> Click to rent </button> 
+                            <button onClick={this.rent}> Click to rent </button> 
                             : <p>Log in first to rent a film</p> 
                     } 
                 </div> 
