@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom'
 
 class FilmsPage extends Component{
     constructor(props){
@@ -10,11 +10,12 @@ class FilmsPage extends Component{
     }
     componentDidMount(){
         this.props.getFilms().then(
-            console.log('r',this.props.result)
+            //console.log('r',this.props.result)
         )
             
     }
     render(){
+        let root = window.location.pathname;
         return (
             <>
                 <h1> All films </h1>
@@ -23,12 +24,17 @@ class FilmsPage extends Component{
                     this.props.result.map ( 
                         (f)=>
                             <li key={f.id} className='film-list'>
-                                <div>
-                                    <span> {f.id}</span>
-                                    <h2>{f.name}</h2> 
-                                    <span> {f.year}</span> 
-                                    {console.log(f.genres)}
-                                </div>
+                                <Link to={{
+                                    pathname : `${root}/${f.id}`,
+                                    state : { component : 'Film' }
+                                }}>
+                                    <div>
+                                        <span> {f.id}</span>
+                                        <h2>{f.name}</h2> 
+                                        <span> {f.year}</span> 
+                                        {console.log(f.genres)}
+                                    </div>
+                                </Link>
                             </li>
                          )
                     : <li>Empty</li> }

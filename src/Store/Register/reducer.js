@@ -28,7 +28,6 @@ export const registerReducer = ( state = defaultState, action ) => {
             return { ...state, phonenumber : action.payload }
         case SET_STATUS : 
             return { ...state,  status : action.status, payload : action.payload, error : action.error }
-    
         case SEND_REGISTER : 
             return {...state, status : action.status, payload : action.payload, error :action.error}
         default : return state;

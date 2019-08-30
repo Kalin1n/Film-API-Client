@@ -1,7 +1,7 @@
 import { SET_FILMS_STATUS}  from './actions.js';
 
 const defaultState = {
-  films : null,
+  films : [],
   status: null,
   error : null
 }
